@@ -38,7 +38,7 @@ app.get('/charities/new', (req, res) => {
 //CREATE
 app.post('/charities', (req, res) => {
   models.Charity.create(req.body).then(charity => {
-    res.redirect(`/`);
+    res.redirect(`/charities/${charity.id}`);
   }).catch((err) => {
     console.log(err)
   });
