@@ -1,0 +1,25 @@
+<!-- views/charities-new.handlebars -->
+
+<form method="POST" action="/charities">
+  <fieldset>
+    <legend>New Charity</legend>
+
+    <p>
+      <label for="title">Charity Name</label><br>
+      <input type="text" name="title" />
+    </p>
+    <p>
+      <label for="desc">Description</label><br>
+      <input type="text" name="desc" />
+    </p>
+    <p>
+      <label for="imgUrl">Image Url</label><br>
+      <input type="text" placeholder="" name="imgUrl" />
+    </p>
+  </fieldset>
+
+  <p>
+    <button type="submit">Save Charity</button>
+  </p>
+
+</form>

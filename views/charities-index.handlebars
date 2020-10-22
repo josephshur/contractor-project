@@ -1,6 +1,8 @@
 <!-- charities-index -->
 <div class="row mt-4">
       <div class="col-lg-6 offset-lg-3">
+          <h1>Reviews</h1>
+          <a href="charities/new">New Charity</a>
           <h1>Charities</h1>
           {{#each charities}}
             <div class="card mt-3">
@@ -10,7 +12,7 @@
                 <p class="card-text">{{this.desc}}</p>
                 <div class="text-right">
                   <a href="#" class="btn btn-primary">Donate Now</a>
-                  <a href="#" class="btn btn-gray">More Info</a>
+                  <a href="/events/{{this.id}}" class="btn btn-gray">More Info</a>
                 </div>
               </div>
             </div>
