@@ -2,11 +2,15 @@ const Handlebars = require('handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
 const express = require('express')
+const methodOverride = require('method-override')
+
 const app = express()
 
 const bodyParser = require('body-parser');
 
 const exphbs = require('express-handlebars');
+
+app.use(methodOverride('_method'));
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main', handlebars: allowInsecurePrototypeAccess(Handlebars) }));
 
@@ -52,6 +56,38 @@ app.get('/charities/:id', (req, res) => {
     console.log(err.message);
   })
 })
+
+//EDIT
+app.get('/charities/:id/edit', (req, res) => {
+  models.Charity.findByPk(req.params.id).then((charity) => {
+    res.render('charities-edit', { charity: charity });
+  }).catch((err) => {
+    console.log(err.message);
+  })
+});
+
+//UPDATE
+app.put('/charities/:id', (req, res) => {
+  models.Charity.findByPk(req.params.id).then(charity => {
+    charity.update(req.body).then(charity => {
+      res.redirect(`/charities/${req.params.id}`);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }).catch((err) => {
+    console.log(err);
+  });
+});
+
+//DELETE
+app.delete('/charities/:id', (req, res) => {
+  models.Charity.findByPk(req.params.id).then(charity => {
+    charity.destroy();
+    res.redirect(`/`);
+  }).catch((err) => {
+    console.log(err);
+  });
+});
 
 const port = process.env.PORT || 3000;
 
