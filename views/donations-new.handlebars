@@ -12,16 +12,9 @@
                 </div>
                 <div class="card-text">
                     <form action="/charities/{{charity.id}}/donations" method="post">
+                        {{> donations-form}}
                         <div class="form-group">
-                          <label for="title">Name</label>
-                          <input name="name" class="form-control" placeholder="John Appleseed" />
-                        </div>
-                        <div class="form-group">
-                          <label for="title">Email</label>
-                          <input name="email" class="form-control" placeholder="johnappleseed@gmail.com" />
-                        </div>
-                        <div class="form-group">
-                          <label for="title">Amount<label>
+                          <label for="title">Amount</label>
                           <input name="amount" class="form-control" placeholder="0" />
                         </div>
                         <div class="text-right">

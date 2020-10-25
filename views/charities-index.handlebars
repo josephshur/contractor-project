@@ -1,21 +1,29 @@
 <!-- charities-index -->
 <div class="row mt-4">
-      <div class="container">
+      <div class="col-lg-6">
           <h1>Reviews</h1>
           <a href="charities/new">New Charity</a>
           <h1>Charities</h1>
           {{#each charities}}
-            <div class="card col-lg-6">
+            <div class="card mt-3">
               <img class="card-img-top" src="{{this.imgUrl}}" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">{{this.title}}</h5>
                 <p class="card-text">{{this.desc}}</p>
                 <div class="text-right">
-                  <a href="#" class="btn btn-primary">Donate Now</a>
+                  <a href="/charities/{{this.id}}/donations/new" class="btn btn-primary">Donate Now</a>
                   <a href="/charities/{{this.id}}" class="btn btn-gray">More Info</a>
                 </div>
               </div>
             </div>
           {{/each}}
+      </div>
+      <div class="col-lg-6">
+        Test
+        {{#each posts}}
+          <div class="card mt-3">
+            {{this.name}}{{this.}}
+          </div>
+        {{/each}}
       </div>
 </div>

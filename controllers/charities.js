@@ -19,9 +19,14 @@ module.exports = function (app, models) {
       res.render('login', {});
     })
 
-    //FORUM
+    //HELP
     app.get('/help', (req, res) => {
       res.render('help', {});
+    })
+
+    //SIGNUP
+    app.get('/signup', (req, res) => {
+      res.render('signup', {});
     })
 
     //CREATE
