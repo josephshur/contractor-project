@@ -18,5 +18,4 @@ module.exports = (app, models) => {
     });
   });
 
-  //DESTROY
 }

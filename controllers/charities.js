@@ -2,19 +2,29 @@
 
 module.exports = function (app, models) {
 
-    // INDEX
+    //INDEX
     app.get('/', (req, res) => {
         models.Charity.findAll({ order: [['createdAt', 'DESC']] }).then(charities => {
             res.render('charities-index', { charities: charities });
         })
     })
 
-    // NEW
+    //NEW
     app.get('/charities/new', (req, res) => {
       res.render('charities-new', {});
     })
 
-    // CREATE
+    //LOGIN
+    app.get('/login', (req, res) => {
+      res.render('login', {});
+    })
+
+    //FORUM
+    app.get('/help', (req, res) => {
+      res.render('help', {});
+    })
+
+    //CREATE
     app.post('/charities', (req, res) => {
       models.Charity.create(req.body).then(charity => {
         res.redirect(`/charities/${charity.id}`);
@@ -22,7 +32,7 @@ module.exports = function (app, models) {
         console.log(err)
       });
     })
-    
+
     //SHOW
     app.get('/charities/:id', (req, res) => {
       models.Charity.findByPk(req.params.id).then((charity) => {
@@ -33,7 +43,7 @@ module.exports = function (app, models) {
     })
 
 
-    // EDIT
+    //EDIT
     app.get('/charities/:id/edit', (req, res) => {
       models.Charity.findByPk(req.params.id).then((charity) => {
         res.render('charities-edit', { charity: charity });
@@ -42,7 +52,7 @@ module.exports = function (app, models) {
       })
     });
 
-    // UPDATE
+    //UPDATE
     app.put('/charities/:id', (req, res) => {
       models.Charity.findByPk(req.params.id).then(charity => {
         charity.update(req.body).then(charity => {
@@ -55,7 +65,7 @@ module.exports = function (app, models) {
       });
     });
 
-    // DELETE
+    //DELETE
     app.delete('/charities/:id', (req, res) => {
       models.Charity.findByPk(req.params.id).then(charity => {
         charity.destroy();
