@@ -29,6 +29,11 @@ module.exports = function (app, models) {
       res.render('signup', {});
     })
 
+    //THANK YOU
+    app.get('/thankyou', (req, res => {
+      res.render('thank-you', {});
+    })
+
     //CREATE
     app.post('/charities', (req, res) => {
       models.Charity.create(req.body).then(charity => {
