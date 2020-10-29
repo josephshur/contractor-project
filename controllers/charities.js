@@ -30,7 +30,7 @@ module.exports = function (app, models) {
     })
 
     //THANK YOU
-    app.get('/thankyou', (req, res => {
+    app.get('/thankyou', (req, res) => {
       res.render('thank-you', {});
     })
 
