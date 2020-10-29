@@ -4,6 +4,18 @@
     <img class="img-fluid w-100 rounded mb-3" src="{{charity.imgUrl}}" alt="Card image cap">
     <h3>{{charity.title}}</h3>
     <div class="lead">{{charity.desc}}</div>
+    <br>
+    <div class="row">
+      <div class="col-4">
+        <a href="/charities/{{this.id}}/donations/new" class="btn btn-primary">Donate Now</a>
+      </div>
+      <div class="col-4">
+        <a href="/charities/{{this.id}}" class="btn btn-gray">More Info</a>
+      </div>
+      <div class="col-4">
+        <a href="/charities/{{this.id}}/edit" class="btn btn-gray">Edit Charity</a>
+      </div>
+    </div>
   </div>
 
   <div class="col-lg-6">
